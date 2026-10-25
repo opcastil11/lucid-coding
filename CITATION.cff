@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you reference Lucid coding, please cite it as below."
+title: "Lucid coding: vibe coding, awake"
+version: "1.0"
+date-released: 2026-10-25
+license: CC-BY-SA-4.0
+authors:
+  - family-names: Castillo
+    given-names: Oscar
+repository-code: "https://github.com/opcastil11/lucid-coding"
+url: "https://opcastil11.github.io/lucid-coding/"
+keywords: [ai-agents, vibe-coding, software-methodology, manifesto]

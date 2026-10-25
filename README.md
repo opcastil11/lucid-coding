@@ -1,47 +1,162 @@
+<p align="center">
+  <img src="og.png" alt="Lucid. Vibe coding, awake. Lead the design · Use what works · Commit &amp; control · Inspect by hand · Defend" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://opcastil11.github.io/lucid-coding/"><b>Manifesto</b></a> ·
+  <a href="https://opcastil11.github.io/lucid-coding/guide.html"><b>Guide (EN)</b></a> ·
+  <a href="https://opcastil11.github.io/lucid-coding/guia.html"><b>Guía (ES)</b></a> ·
+  <a href="SIGNATORIES.md"><b>Sign it</b></a>
+</p>
+
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-1f4fd8">
+  <img alt="License: CC BY-SA 4.0" src="https://img.shields.io/badge/license-CC%20BY--SA%204.0-b45309">
+  <img alt="Languages" src="https://img.shields.io/badge/languages-EN%20%7C%20ES-131820">
+  <img alt="Evidence" src="https://img.shields.io/badge/evidence-3%2C977%20prompts%20measured-5b6573">
+</p>
+
 # Lucid coding
 
-**Vibe coding, awake.** A methodology for building software with AI agents at full speed, while the human stays in charge of design, testing and security.
+**Vibe coding, awake.** Lucid coding is a methodology for building software with AI agents at full speed, while a human stays in charge of design, testing and security.
 
-🌐 **Manifesto:** https://opcastil11.github.io/lucid-coding/ · **Guide (EN):** [guide.html](guide.html) · **Guía (ES):** [guia.html](guia.html)
+The idea comes from lucid dreaming: the dream and its speed stay the same, but you know you are dreaming and you can steer it. The agent executes. The human designs, inspects and defends.
+
+## Contents
+
+- [The manifesto](#the-manifesto)
+- [LUCID in five letters](#lucid-in-five-letters)
+- [The seven pillars](#the-seven-pillars)
+- [Operating rules](#operating-rules)
+- [Antipatterns it fixes](#antipatterns-it-fixes)
+- [Evidence](#evidence)
+- [Get started in four weeks](#get-started-in-four-weeks)
+- [Sign the manifesto](#sign-the-manifesto)
+- [FAQ](#faq)
+- [License and citation](#license-and-citation)
 
 ## The manifesto
 
-We build software with AI agents every day. We keep their speed, but we code awake. That is why we value:
+> We build software with AI agents every day. We keep their speed, but we code awake. That is why we value:
+>
+> **Architecture decided by humans** over code the AI improvises
+> **Templates and repos that already work** over building from scratch
+> **Continuous execution, one change at a time** over long plans with no commits
+> **Product tested by hand** over automated coverage nobody looked at
+> **Security reviewed by a person** over blind trust in the AI
+>
+> There is value in the items on the right, and we use them: the AI writes code and tests. But when they conflict, the items on the left win.
 
-- **Architecture decided by humans** over code the AI improvises
-- **Templates and repos that already work** over building from scratch
-- **Continuous execution, one change at a time** over long plans with no commits
-- **Product tested by hand** over automated coverage nobody looked at
-- **Security reviewed by a person** over blind trust in the AI
+**Rule zero:** the agent is confidently wrong. Verify everything.
 
-There is value in the items on the right, and we use them: the AI writes code and tests. But when they conflict, the items on the left win.
+## LUCID in five letters
 
-> Rule zero: the agent is confidently wrong. Verify everything.
+The five letters work the same way in English and Spanish.
 
-## LUCID
+| | English | Español | Who leads | Pillars |
+|:-:|---|---|---|---|
+| **L** | Lead the design | Liderar el diseño | 🟧 human | Architecture |
+| **U** | Use what works | Usar lo que funciona | 🟦 AI, guided | Foundations · Method |
+| **C** | Commit & control | Commit y control | 🟦 AI, traced | Proceed · Control & auditability |
+| **I** | Inspect by hand | Inspeccionar a mano | 🟧 human | QA |
+| **D** | Defend | Defender | 🟧 human | Security |
 
-| | | Pillar |
+## The seven pillars
+
+| # | Pillar | In one line |
+|:-:|---|---|
+| I | **Foundations** | Start from code and architectures that already exist and that you know. Templates over scratch. |
+| 0 | **Architecture** | The soul of the code: what to build and how. The human's creativity lives here, and it is not delegated. |
+| 1 | **Proceed** | Always forward. In execution the AI leads: terminal, browser, everything it can do. It does not hand work back. |
+| 2 | **Method** | Prebuilt method templates per kind of build, turned into hard rules. Every repeated error becomes a new rule. |
+| 3 | **QA** | Intensive, mostly human product QA, element by element. The AI automates unit tests and controlled automations. |
+| 4 | **Security** | Still coded "by hand", with all available review time. **Never 100% delegated to the AI.** |
+| 5 | **Control & auditability** | On a team, log sessions and prompts, linked to their commits. A written AI-use policy makes code security and credential use auditable. |
+
+## Operating rules
+
+0. **Bounded context.** Every change fits before the first context compaction. Each one runs a full GIED cycle (Generate, Integrate, Evaluate, Debug).
+1. **Short, direct prompts.** Anything permanent goes in the context file, not in every message.
+2. **One change per prompt.** Another AI must be able to audit it from the prompt and the diff alone.
+3. **Concrete references, never adjectives.** Give a URL, a repo, the exact technical name and a test case.
+4. **Numbered options.** The agent proposes 2–3 paths; the human answers with a number. "Proceed" always has an object.
+5. **Every prompt ends in a commit.** Keep few active branches, each with a clear purpose.
+6. **Multi-agent means separate branches.** One branch and one worktree per agent, with no exceptions.
+7. **Credentials: defined, inventoried, rotatable.** Use environment variables and a vault. A dev key given to the agent goes in the inventory and is rotated before production.
+8. **What worked twice becomes a template.** The agent should not reinvent; it should load.
+9. **Model by task** *(proposal, under validation)*. Use the most capable model for architecture, security and audits.
+
+The agent also gets three standing orders: suspect everything it reports, run e2e tests and check production, and face an **adversarial agent with a clean context** that attacks the code against rules written beforehand.
+
+## Antipatterns it fixes
+
+| Antipattern | Symptom | Fixed by |
 |---|---|---|
-| **L** | Lead the design | Architecture |
-| **U** | Use what works | Foundations, Method |
-| **C** | Commit & control | Proceed, Control & auditability |
-| **I** | Inspect by hand | QA |
-| **D** | Defend | Security |
+| Backlog lives in the agent's head | "What's left?" every day | BACKLOG file + wrap-up event |
+| Giant multi-topic sessions | The agent compacts and forgets the plan | Rule 0 |
+| "Proceed" with no object | The agent guesses what you approved | Rule 4 |
+| Believing the agent | "Done" with no proof; the bug shows up in production | Rule zero, e2e |
+| The builder reviews itself | The agent defends its own code | Adversarial agent |
+| Security delegated to the AI | Nobody read the auth code | Pillar 4 |
+| Credentials without an inventory | Dev keys reach production unrotated | Rule 7 |
+
+## Evidence
+
+Lucid coding was distilled from one developer's year of daily work with AI coding agents. The last three months were analyzed in detail: every typed prompt and every project context file. **This is a measured case study (n = 1), not a survey.** The counts come from regular expressions and are approximate.
+
+| Signal | Measured | What it revealed |
+|---|---:|---|
+| Prompts analyzed | 3,977 | |
+| Messages of three words or fewer | 34–37% | The human steers rather than specifies |
+| "Proceed" and variants | ~420 | Approving is the main act |
+| "What's left?" / "Shall we close?" | ~170 | The backlog lived in the agent |
+| Context compaction summaries | 640 | One in four inputs: sessions too long |
+| Design, logo and i18n complaints | ~105 | Requirements that were never written |
+| Largest context file | 6.5 → 191 KB | The agent's memory grew without a ceiling |
+
+With this loop, a complete SaaS product went from idea to production in 17 hours.
+
+**Measure your own transcripts and compare.** That is the point of publishing.
+
+## Get started in four weeks
+
+| When | Step | What to do |
+|---|---|---|
+| Week 1 | **Set up** | Create the five files (CONTEXT, INVARIANTS, BACKLOG, STATUS, LOG). Write invariants. Set up env vars, a vault and a credential inventory. Save kickoff and wrap-up templates. |
+| Weeks 2–3 | **Practice** | Every prompt ends in a commit, every session closes before compaction and every milestone passes the human gate. Log the friction. |
+| Week 4 | **Measure** | Count compactions per session, "what's left?" and design corrections. Then compare with before and adjust. |
 
 ## Sign the manifesto
 
-Open a pull request adding one line to [SIGNATORIES.md](SIGNATORIES.md). See [CONTRIBUTING.md](CONTRIBUTING.md).
+If the values resonate, add one line to [`SIGNATORIES.md`](SIGNATORIES.md) and open a pull request titled `Sign: <your name>`. Details are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-## Where it comes from
+Experience reports are even more valuable: what you tried, on what kind of project, and what happened. Open an issue with the **Experience report** template.
 
-Lucid coding was distilled from a year of daily work with AI coding agents, measured over the last three months of real sessions (thousands of prompts and their outcomes). It is a measured case study (n=1) published so others can replicate it, challenge it and improve it.
+## FAQ
 
-## License
+**Is this anti vibe coding?** No. It keeps the speed and adds awareness. The right-hand items of the manifesto still have value.
 
-Manifesto and guide: [CC BY-SA 4.0](LICENSE). Copy, translate and adapt freely, with attribution and under the same license.
+**Is it tied to one tool?** No. It was developed with Claude Code, but the concepts are generic: a context file (CLAUDE.md, AGENTS.md…), isolated branches and written procedures.
+
+**Who is it for?** Developers who already work with AI agents. The security pillar requires being able to read code.
+
+**Why "proceed"?** It is the word typed most often in the measured sessions. The working title was the Spanish *«Proceda»*.
+
+## License and citation
+
+The manifesto and the guide are licensed under [CC BY-SA 4.0](LICENSE). You can copy, translate and adapt them with attribution, under the same license. Citation metadata is in [`CITATION.cff`](CITATION.cff).
 
 ---
 
-# Lucid coding (ES)
+<details>
+<summary><b>🇪🇸 Resumen en español</b></summary>
 
-**Vibe coding, despierto.** Una metodología para construir software con agentes de IA a toda velocidad, sin que el humano suelte el diseño, las pruebas ni la seguridad. Lee el [manifiesto](https://opcastil11.github.io/lucid-coding/) y la [guía en español](guia.html).
+**Vibe coding, despierto.** Lucid coding es una metodología para construir software con agentes de IA a toda velocidad, sin que el humano suelte el diseño, las pruebas ni la seguridad.
+
+**LUCID:** Liderar el diseño · Usar lo que funciona · Commit y control · Inspeccionar a mano · Defender.
+
+**Regla cero:** el agente se equivoca con total seguridad. Verifícalo todo.
+
+Lee el [manifiesto](https://opcastil11.github.io/lucid-coding/) y la [guía completa en español](https://opcastil11.github.io/lucid-coding/guia.html). Para firmar, agrega una línea en [`SIGNATORIES.md`](SIGNATORIES.md) y abre un pull request.
+
+</details>
