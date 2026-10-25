@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="og.png" alt="Lucid. Vibe coding, awake. Lead the design · Use what works · Commit &amp; control · Inspect by hand · Defend" width="100%">
+  <img src="og.png" alt="Lucid. Vibe coding, awake. Lead the design · Use what works · Commit &amp; control · Inspect everything · Defend" width="100%">
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 
 **Vibe coding, awake.** Lucid coding is a methodology for building software with AI agents at full speed, while a human stays in charge of design, testing and security.
 
-The idea comes from lucid dreaming: the dream and its speed stay the same, but you know you are dreaming and you can steer it. The agent executes. The human designs, inspects and defends.
+The idea comes from lucid dreaming: the dream and its speed stay the same, but you know you are dreaming and you can steer it. The agent executes. The human designs and defends. Both inspect.
 
 ## Contents
 
@@ -62,7 +62,7 @@ The five letters work the same way in English and Spanish.
 | **L** | Lead the design | Liderar el diseño | 🟧 human | Architecture |
 | **U** | Use what works | Usar lo que funciona | 🟦 AI, guided | Foundations · Method |
 | **C** | Commit & control | Commit y control | 🟦 AI, traced | Proceed · Control & auditability |
-| **I** | Inspect by hand | Inspeccionar a mano | 🟧 human | QA |
+| **I** | Inspect everything | Inspeccionar todo | 🟧🟦 human or agent | QA |
 | **D** | Defend | Defender | 🟧 human | Security |
 
 ## The seven pillars

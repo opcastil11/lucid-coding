@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="og.png" alt="Lucid. Vibe coding, despierto. Liderar el diseño · Usar lo que funciona · Commit y control · Inspeccionar a mano · Defender" width="100%">
+  <img src="og.png" alt="Lucid. Vibe coding, despierto. Liderar el diseño · Usar lo que funciona · Commit y control · Inspeccionar todo · Defender" width="100%">
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 
 **Vibe coding, despierto.** Lucid coding es una metodología para construir software con agentes de IA a toda velocidad, mientras el humano sigue a cargo del diseño, las pruebas y la seguridad.
 
-La idea viene del sueño lúcido: el sueño y su velocidad siguen iguales, pero sabes que estás soñando y puedes dirigirlo. El agente ejecuta; el humano diseña, inspecciona y defiende.
+La idea viene del sueño lúcido: el sueño y su velocidad siguen iguales, pero sabes que estás soñando y puedes dirigirlo. El agente ejecuta; el humano diseña y defiende; los dos inspeccionan.
 
 ## Contenido
 
@@ -60,7 +60,7 @@ La idea viene del sueño lúcido: el sueño y su velocidad siguen iguales, pero 
 | **L** | Liderar el diseño | Lead the design | 🟧 humano | Arquitectura |
 | **U** | Usar lo que funciona | Use what works | 🟦 IA guiada | Bases · Método |
 | **C** | Commit y control | Commit & control | 🟦 IA trazada | Proceda · Control y auditabilidad |
-| **I** | Inspeccionar a mano | Inspect by hand | 🟧 humano | QA |
+| **I** | Inspeccionar todo | Inspect everything | 🟧🟦 humano o agente | QA |
 | **D** | Defender | Defend | 🟧 humano | Seguridad |
 
 ## Los siete pilares
