@@ -26,6 +26,8 @@
 
 The idea comes from lucid dreaming: the dream and its speed stay the same, but you know you are dreaming and you can steer it. The agent executes. The human designs and defends. Both inspect.
 
+> **Backed by data:** 21,310 prompts · 1,548 sessions · 195 projects · 11 months of daily work with AI agents.
+
 ## Contents
 
 - [The manifesto](#the-manifesto)
@@ -106,7 +108,7 @@ The agent also gets three standing orders: suspect everything it reports, run e2
 
 ## Evidence
 
-Lucid coding was distilled from one developer's year of daily work with AI coding agents, and the whole history was measured: every typed prompt from November 2025 to October 2026, plus every project context file. Compactions come from the transcripts the tool retains (the last month). **This is a measured case study (n = 1), not a survey.** The counts come from regular expressions and are approximate.
+Lucid coding was distilled from one developer's year of daily work with AI coding agents, and the whole history was measured: every typed prompt from November 2025 to October 2026, plus every project context file. Compactions come from the transcripts the tool retains (the last month). **Every rule in Lucid coding comes from this data.** Counts come from regular expressions and are approximate.
 
 | Signal | Measured | What it revealed |
 |---|---:|---|

@@ -26,6 +26,8 @@
 
 La idea viene del sueño lúcido: el sueño y su velocidad siguen iguales, pero sabes que estás soñando y puedes dirigirlo. El agente ejecuta; el humano diseña y defiende; los dos inspeccionan.
 
+> **Respaldado por datos:** 21.310 prompts · 1.548 sesiones · 195 proyectos · 11 meses de trabajo diario con agentes de IA.
+
 ## Contenido
 
 - [El manifiesto](#el-manifiesto)
@@ -107,7 +109,7 @@ Además, el agente tiene tres órdenes permanentes:
 
 ## Evidencia
 
-Lucid coding sale de un año de trabajo diario de un programador con agentes de IA, con todo el historial medido: cada prompt tecleado entre noviembre de 2025 y octubre de 2026 y cada archivo de contexto de sus proyectos. Las compactaciones salen de los transcripts que la herramienta conserva (el último mes). **Es un caso de estudio medido (n = 1), no una encuesta.** Los conteos se hicieron con expresiones regulares y son aproximados.
+Lucid coding sale de un año de trabajo diario de un programador con agentes de IA, con todo el historial medido: cada prompt tecleado entre noviembre de 2025 y octubre de 2026 y cada archivo de contexto de sus proyectos. Las compactaciones salen de los transcripts que la herramienta conserva (el último mes). **Cada regla de Lucid coding sale de estos datos.** Los conteos se hicieron con expresiones regulares y son aproximados.
 
 | Señal | Medida | Qué reveló |
 |---|---:|---|
