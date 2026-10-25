@@ -81,16 +81,16 @@ The five letters work the same way in English and Spanish.
 
 ## Operating rules
 
-0. **Bounded context.** Every change fits before the first context compaction. Each one runs a full GIED cycle (Generate, Integrate, Evaluate, Debug).
+0. **Bounded context and token management.** Every change fits before the first context compaction and runs a full GIED cycle (Generate, Integrate, Evaluate, Debug). Context per turn is ~25k tokens (median), yet 52% of sessions compacted: close and reopen sessions on time instead of asking for a bigger window.
 1. **Short, direct prompts.** Anything permanent goes in the context file, not in every message.
 2. **One change per prompt.** Another AI must be able to audit it from the prompt and the diff alone.
 3. **Concrete references, never adjectives.** Give a URL, a repo, the exact technical name and a test case.
 4. **Numbered options.** The agent proposes 2–3 paths; the human answers with a number. "Proceed" always has an object.
 5. **Every prompt ends in a commit.** Keep few active branches, each with a clear purpose.
-6. **Multi-agent means separate branches.** One branch and one worktree per agent, with no exceptions.
+6. **Multi-agent means separate branches.** One branch and one worktree per agent, with no exceptions. The lead hands out bounded tasks, each subagent starts from a clean context and returns a summary, and the lead integrates. (Last month: 1,022 subagents, ~2,490 worktree operations.)
 7. **Credentials: defined, inventoried, rotatable.** Use environment variables and a vault. A dev key given to the agent goes in the inventory and is rotated before production.
-8. **What worked twice becomes a template.** The agent should not reinvent; it should load.
-9. **Model by task** *(proposal, under validation)*. Use the most capable model for architecture, security and audits.
+8. **What worked twice becomes a skill.** Preloaded skills for kickoff, wrap-up, deploy and browser QA. The agent should not reinvent; it should load. (Last month: ~9,000 browser actions, ~30 skill invocations.)
+9. **Most capable model by default.** Fast models only in subagents whose output gets verified; architecture, security and audits never drop a tier. (Last month: ~99% of responses from the top model.)
 
 The agent also gets three standing orders: suspect everything it reports, run e2e tests and check production, and face an **adversarial agent with a clean context** that attacks the code against rules written beforehand.
 

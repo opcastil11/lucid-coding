@@ -79,16 +79,16 @@ La idea viene del sueño lúcido: el sueño y su velocidad siguen iguales, pero 
 
 ## Reglas operativas
 
-0. **Contexto acotado.** Cada cambio cabe entero antes de la primera compactación de contexto y cumple un ciclo GIED completo (Generar, Integrar, Evaluar, Depurar).
+0. **Contexto acotado y gestión de tokens.** Cada cambio cabe entero antes de la primera compactación y cumple un ciclo GIED completo (Generar, Integrar, Evaluar, Depurar). El contexto por turno ronda los 25k tokens (mediana), pero el 52 % de las sesiones compactó: hay que cerrar y abrir sesión a tiempo, no pedir más ventana.
 1. **Prompts cortos y directos.** Lo permanente va en el archivo de contexto, no en cada mensaje.
 2. **Un cambio por prompt.** Otra IA tiene que poder auditarlo solo con el prompt y el diff.
 3. **Referencias concretas, nunca adjetivos.** Una URL, un repo, el nombre técnico exacto y un caso de prueba.
 4. **Opciones numeradas.** El agente propone 2 o 3 caminos y el humano responde con un número. «Proceda» siempre dice con qué.
 5. **Cada prompt termina en un commit.** Pocas ramas activas, cada una con un propósito claro.
-6. **Varios agentes, ramas separadas.** Una rama y un worktree por agente, sin excepción.
+6. **Varios agentes, ramas separadas.** Una rama y un worktree por agente, sin excepción. El líder reparte encargos acotados, cada subagente parte con contexto limpio y devuelve un resumen, y el líder integra. (Último mes: 1.022 subagentes, ~2.490 operaciones con worktrees.)
 7. **Credenciales definidas, inventariadas y rotables.** Variables de entorno y un vault. Si en desarrollo le entregas una llave al agente, entra al inventario y se rota antes de producción.
-8. **Lo que funcionó dos veces se vuelve plantilla.** El agente no reinventa: carga.
-9. **El modelo según la tarea** *(propuesta, en validación)*. El más capaz para arquitectura, seguridad y auditorías.
+8. **Lo que funcionó dos veces se vuelve skill.** Skills precargadas de arranque, cierre, deploy y QA en navegador. El agente no reinventa: carga. (Último mes: ~9.000 acciones de navegador, ~30 invocaciones de skills.)
+9. **El modelo más capaz por defecto.** Los rápidos solo en subagentes cuyo resultado se verifica; arquitectura, seguridad y auditorías nunca bajan de modelo. (Último mes: ~99 % de las respuestas del modelo tope.)
 
 Además, el agente tiene tres órdenes permanentes:
 - sospechar de todo lo que reporta;
