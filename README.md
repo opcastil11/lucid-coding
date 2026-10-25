@@ -55,6 +55,8 @@ The idea comes from lucid dreaming: the dream and its speed stay the same, but y
 
 **Rule zero:** the agent is confidently wrong. Verify everything.
 
+That doesn't mean a human reviews every line. It means every request ships with its own way to verify it, so the result is always easy to check: by you, by a test, or by another agent. Inspectable by design, not inspected by hand.
+
 ## LUCID in five letters
 
 The five letters work the same way in English and Spanish.

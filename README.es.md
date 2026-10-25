@@ -55,6 +55,8 @@ La idea viene del sueño lúcido: el sueño y su velocidad siguen iguales, pero 
 
 **Regla cero:** el agente se equivoca con total seguridad. Verifícalo todo.
 
+Eso no significa que un humano revise cada línea. Significa que cada pedido trae su forma de verificarse, para que el resultado sea siempre fácil de comprobar: por ti, por un test o por otro agente. Revisable por diseño, no revisado a mano.
+
 ## LUCID en cinco letras
 
 | | Español | English | Quién lleva | Pilares |
