@@ -1,4 +1,8 @@
 <p align="center">
+  <b>English</b> · <a href="README.es.md">Español</a>
+</p>
+
+<p align="center">
   <img src="og.png" alt="Lucid. Vibe coding, awake. Lead the design · Use what works · Commit &amp; control · Inspect by hand · Defend" width="100%">
 </p>
 
@@ -146,17 +150,3 @@ Experience reports are even more valuable: what you tried, on what kind of proje
 
 The manifesto and the guide are licensed under [CC BY-SA 4.0](LICENSE). You can copy, translate and adapt them with attribution, under the same license. Citation metadata is in [`CITATION.cff`](CITATION.cff).
 
----
-
-<details>
-<summary><b>🇪🇸 Resumen en español</b></summary>
-
-**Vibe coding, despierto.** Lucid coding es una metodología para construir software con agentes de IA a toda velocidad, sin que el humano suelte el diseño, las pruebas ni la seguridad.
-
-**LUCID:** Liderar el diseño · Usar lo que funciona · Commit y control · Inspeccionar a mano · Defender.
-
-**Regla cero:** el agente se equivoca con total seguridad. Verifícalo todo.
-
-Lee el [manifiesto](https://opcastil11.github.io/lucid-coding/) y la [guía completa en español](https://opcastil11.github.io/lucid-coding/guia.html). Para firmar, agrega una línea en [`SIGNATORIES.md`](SIGNATORIES.md) y abre un pull request.
-
-</details>
