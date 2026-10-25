@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guía Lucid Coding</title>
+<meta name="description" content="Cómo programar con agentes de IA a velocidad de vibe coding, pero despierto: pilares, marco, reglas y evidencia.">
+<meta property="og:type" content="website"><meta property="og:title" content="Guía Lucid Coding"><meta property="og:description" content="Cómo programar con agentes de IA a velocidad de vibe coding, pero despierto: pilares, marco, reglas y evidencia.">
+<meta property="og:url" content="https://opcastil11.github.io/lucid-coding/guia.html"><meta property="og:image" content="https://opcastil11.github.io/lucid-coding/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Guía Lucid Coding"><meta name="twitter:description" content="Cómo programar con agentes de IA a velocidad de vibe coding, pero despierto: pilares, marco, reglas y evidencia."><meta name="twitter:image" content="https://opcastil11.github.io/lucid-coding/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: columna editorial; de lo abstracto (manifiesto) a lo operativo (reglas). Ámbar = responsabilidad humana, cobalto = IA */
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --ink: #131820;
+  --muted: #5b6573;
+  --rule: #d9dee6;
+  --accent: #1f4fd8;
+  --accent-soft: #e4eafc;
+  --gate: #b45309;
+  --gate-soft: #fbefe1;
+  --term-bg: #131820;
+  --term-ink: #e8edf5;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1218; --surface: #161c25; --ink: #e8edf5; --muted: #98a3b3; --rule: #2a3340;
+    --accent: #7d9bff; --accent-soft: #1b2645; --gate: #f0a75a; --gate-soft: #33240f;
+    --term-bg: #05070a; --term-ink: #e8edf5; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1218; --surface: #161c25; --ink: #e8edf5; --muted: #98a3b3; --rule: #2a3340;
+  --accent: #7d9bff; --accent-soft: #1b2645; --gate: #f0a75a; --gate-soft: #33240f;
+  --term-bg: #05070a; --term-ink: #e8edf5; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 56px 96px; display: grid; gap: 96px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.05; }
+h2 { font-size: clamp(30px, 4.4vw, 44px); font-weight: 800; letter-spacing: -0.02em; }
+h3 { font-size: 20px; font-weight: 700; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--accent); }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.eyebrow .n { color: var(--accent); }
+.lead { font-size: 19px; color: var(--muted); }
+section { display: grid; gap: 28px; min-width: 0; scroll-margin-top: 24px; }
+.sec-head { display: grid; gap: 12px; }
+.sub { display: grid; gap: 16px; }
+.why { font-size: 14.5px; color: var(--muted); }
+code { font-family: var(--f-mono); font-size: 0.86em; background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; }
+.draft { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--muted); border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+
+/* Hero */
+.hero { display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(64px, 14vw, 168px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.9; }
+.hero h1 span { color: var(--accent); }
+.tagline { font-family: var(--f-display); font-size: clamp(26px, 4vw, 40px); font-weight: 700; line-height: 1.1; letter-spacing: -0.015em; }
+.tagline .ai { color: var(--accent); }
+.tagline .hu { color: var(--gate); }
+.prompt {
+  font-family: var(--f-mono); background: var(--term-bg); color: var(--term-ink);
+  border-radius: 10px; padding: 18px 22px; font-size: 15px; display: grid; gap: 6px;
+  max-width: 640px; overflow-x: auto;
+}
+.prompt .u::before { content: "› "; color: var(--accent); }
+.prompt .a { color: #8f9bad; }
+.cursor { display: inline-block; width: 0.6em; height: 1.1em; background: var(--term-ink); vertical-align: -0.2em; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc a { font-family: var(--f-mono); font-size: 13px; text-decoration: none; color: var(--ink); border: 1px solid var(--rule); background: var(--surface); padding: 6px 10px; border-radius: 999px; }
+.toc a:hover { border-color: var(--accent); color: var(--accent); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; border-top: 1px solid var(--rule); }
+.stat { padding: 18px 20px 0 0; display: grid; gap: 4px; }
+.stat b { font-family: var(--f-display); font-size: 40px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.stat span { font-size: 14px; color: var(--muted); }
+
+/* Manifesto */
+.manifesto { list-style: none; margin: 0; padding: 0; display: grid; border-top: 2px solid var(--ink); }
+.manifesto li { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+.manifesto .yes { font-family: var(--f-display); font-size: clamp(20px, 2.6vw, 26px); font-weight: 700; line-height: 1.15; }
+.manifesto .over { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.manifesto .no { color: var(--muted); font-size: 17px; }
+.manifesto-foot { font-size: 15.5px; color: var(--muted); }
+
+/* Pillars */
+.pillars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.pillars li { position: relative; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 22px 44px; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; }
+.pillars li.base { grid-column: 1 / -1; background: transparent; border-style: dashed; padding-bottom: 22px; }
+.pillars li.human { border-color: var(--gate); }
+.pillars li.sec { background: var(--gate-soft); }
+.pillars .N { font-family: var(--f-display); font-size: 44px; font-weight: 800; line-height: 0.9; color: var(--accent); }
+.pillars li.human .N { color: var(--gate); }
+.pillars .body { display: grid; gap: 8px; min-width: 0; }
+.pillars .body p { font-size: 15.5px; }
+.pillars .rule { font-weight: 600; color: var(--gate); }
+.who { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gate); }
+.who.ai { color: var(--accent); }
+.pillars .who { position: absolute; right: 16px; bottom: 14px; }
+
+/* Levels */
+.level { border: 1.5px solid var(--rule); border-radius: 14px; padding: 18px; background: var(--surface); display: grid; gap: 14px; }
+.level .level { background: var(--bg); }
+.level .level .level { background: var(--surface); }
+.level .level .level .level { background: var(--accent-soft); border-color: var(--accent); }
+.level-head { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+.level-head h3 { font-size: 19px; }
+.level-head .dur { font-family: var(--f-mono); font-size: 12px; color: var(--accent); }
+.level-head p { font-size: 14.5px; color: var(--muted); flex-basis: 100%; }
+.gatepill { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gate); border: 1px solid var(--gate); border-radius: 999px; padding: 1px 8px; }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card.h { border-color: var(--gate); }
+.card.key { grid-column: 1 / -1; border: 2px solid var(--accent); }
+.card .when { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.card.h .when { color: var(--gate); }
+.card p, .card li { font-size: 15.5px; }
+.card ol, .card ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.card-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.say { font-family: var(--f-mono); font-size: 13.5px; background: var(--term-bg); color: var(--term-ink); padding: 10px 12px; border-radius: 6px; overflow-wrap: anywhere; }
+.say::before { content: "› "; color: var(--accent); }
+.gied { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.gied span { background: var(--accent-soft); border-radius: 8px; padding: 10px 12px; font-family: var(--f-mono); font-size: 14px; text-align: center; }
+.gied b { color: var(--accent); font-size: 18px; }
+
+/* Roles */
+.roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.role-col { display: grid; gap: 12px; align-content: start; }
+.role { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: 10px; padding: 14px 18px; display: grid; gap: 4px; }
+.role.h { border-left-color: var(--gate); }
+.role h3 { font-size: 17px; }
+.role p { font-size: 15px; }
+
+/* Done */
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.checks li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 15.5px; }
+.checks li::before { content: ""; width: 16px; height: 16px; margin-top: 5px; border: 1.5px solid var(--muted); border-radius: 4px; }
+.checks li.h::before { border-color: var(--gate); background: var(--gate-soft); }
+
+/* Numbered rules */
+.rules { list-style: none; margin: 0; padding: 0; display: grid; border-top: 2px solid var(--ink); }
+.rules li { display: grid; grid-template-columns: 72px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.rules .L { font-family: var(--f-display); font-size: 56px; font-weight: 800; line-height: 0.85; color: var(--accent); }
+.rules .body { display: grid; gap: 6px; min-width: 0; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; border-top: 2px solid var(--ink); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th { text-align: left; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 12px 16px 10px 0; border-bottom: 1px solid var(--rule); }
+td { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td.num { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+
+.note { border-left: 3px solid var(--gate); background: var(--gate-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; font-size: 15.5px; max-width: 72ch; }
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 20px; font-family: var(--f-mono); display: grid; gap: 6px; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .wrap { gap: 72px; padding-block: 32px 64px; }
+  .manifesto li { grid-template-columns: 1fr; gap: 4px; }
+  .rules li { grid-template-columns: 44px 1fr; gap: 14px; }
+  .rules .L { font-size: 40px; }
+  .level { padding: 14px 12px; }
+}
+.lucid-band{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:0 0 24px}.lucid-band div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:12px}.lucid-band b{display:block;font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1;color:var(--accent)}.lucid-band span{display:block;font-weight:600;margin-top:6px}.lucid-band small{display:block;color:var(--muted);font-size:13px;line-height:1.35;margin-top:2px}.lucid-band .h b{color:var(--gate)}@media(max-width:600px){.lucid-band{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow"><a href="index.html">← Manifiesto</a> · Guía Lucid Coding · v1.0 · octubre 2026</div>
+    <h1>Lucid<span>.</span></h1>
+    <p class="tagline"><span class="ai">La IA ejecuta.</span> <span class="hu">El humano diseña, prueba y asegura.</span></p>
+    <p class="lead">Lucid coding es vibe coding con el humano despierto: la misma velocidad, pero sabiendo en todo momento qué está haciendo el agente y dirigiéndolo. Es para programadores que ya trabajan con agentes de código y quieren hacerlo con método. Nace de un año de práctica diaria, medido sobre casi 4.000 prompts reales. Su palabra ritual es la que más se tecleó en ellos: «proceda».</p>
+    <div class="prompt" aria-label="Ejemplo del bucle de trabajo">
+      <div class="u">qué queda?</div>
+      <div class="a">1. i18n en checkout  2. logo en el header  3. e2e de pagos</div>
+      <div class="u">1 y 2 ok. 3 en sandbox. proceda <span class="cursor" aria-hidden="true"></span></div>
+    </div>
+    <nav class="toc" aria-label="Contenido">
+      <a href="#manifiesto">1 Manifiesto</a><a href="#pilares">2 Pilares</a><a href="#agente">3 El agente</a><a href="#marco">4 El marco</a><a href="#reglas">5 Reglas</a><a href="#antipatrones">6 Antipatrones</a><a href="#empezar">7 Cómo empezar</a><a href="#evidencia">8 Evidencia</a>
+    </nav>
+  </header>
+
+  <section id="manifiesto">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">1</span> · Manifiesto</div>
+      <h2>Cinco valores</h2>
+    </div>
+    <ol class="manifesto">
+      <li><span class="yes">Arquitectura decidida por humanos</span><span class="over">antes que</span><span class="no">código que la IA improvisa</span></li>
+      <li><span class="yes">Plantillas y repos que ya funcionan</span><span class="over">antes que</span><span class="no">construir desde cero</span></li>
+      <li><span class="yes">Ejecución continua, cambio a cambio</span><span class="over">antes que</span><span class="no">planes largos sin commits</span></li>
+      <li><span class="yes">Producto probado a mano</span><span class="over">antes que</span><span class="no">cobertura automática que nadie miró</span></li>
+      <li><span class="yes">Seguridad revisada por una persona</span><span class="over">antes que</span><span class="no">confianza ciega en la IA</span></li>
+    </ol>
+    <p class="manifesto-foot">Lo de la derecha tiene valor y se usa: la IA genera código y escribe tests. Pero cuando hay conflicto, gana lo de la izquierda.</p>
+  </section>
+
+  <section id="pilares">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">2</span> · Pilares</div>
+      <h2>Siete pilares reparten el trabajo entre humano e IA</h2>
+      <p>Son la columna del método. Todo lo que viene después existe para sostenerlos. Se recuerdan con las cinco letras de LUCID, que valen igual en inglés y en español.</p>
+    </div>
+    <div class="lucid-band" aria-label="LUCID">
+      <div class="h"><b>L</b><span>Liderar el diseño</span><small>Lead the design · pilar 0</small></div>
+      <div><b>U</b><span>Usar lo que funciona</span><small>Use what works · pilares I y 2</small></div>
+      <div><b>C</b><span>Commit y control</span><small>Commit &amp; control · pilares 1 y 5</small></div>
+      <div class="h"><b>I</b><span>Inspeccionar a mano</span><small>Inspect by hand · pilar 3</small></div>
+      <div class="h"><b>D</b><span>Defender</span><small>Defend · pilar 4</small></div>
+    </div>
+    <ol class="pillars">
+      <li class="base"><div class="N">I</div><div class="body"><h3>Bases <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· U</small></h3><p>Se parte de código y arquitecturas que existen y que el programador ya conoce. Al agente se le entregan repos listos y herramientas ya programadas, para que use plantillas de código que ya funcionan en vez de hacer todo desde cero.</p></div></li>
+      <li class="human"><div class="N">0</div><div class="body"><h3>Arquitectura <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· L</small></h3><p>Es el alma del código. Aquí el programador pone la visión: qué hay que hacer y cómo hacerlo. Es donde vive su creatividad, y no se delega.</p></div><span class="who">humano</span></li>
+      <li><div class="N">1</div><div class="body"><h3>Proceda <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· C</small></h3><p>Siempre hacia adelante con la IA. En la ejecución, la IA manda: hace todo lo que puede, terminal y navegador incluidos, y no devuelve trabajo que podría hacer ella.</p></div><span class="who ai">IA</span></li>
+      <li><div class="N">2</div><div class="body"><h3>Método <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· C</small></h3><p>Plantillas de método ya hechas, una por tipo de construcción, como guía para la IA. Se traducen en reglas concretas y lineales que forman el harness duro del sistema. Cada error que se repite se convierte en una regla más.</p></div><span class="who ai">IA guiada</span></li>
+      <li class="human"><div class="N">3</div><div class="body"><h3>QA <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· I</small></h3><p>QA de producto intensivo, sobre todo humano: cada elemento se prueba por separado y a mano. La IA automatiza solo los unit tests y las automatizaciones controladas. Las técnicas principales son manejar el navegador, depurar de forma controlada y usar la CLI para simular al usuario.</p></div><span class="who">humano + IA</span></li>
+      <li class="human sec"><div class="N">4</div><div class="body"><h3>Seguridad <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· D</small></h3><p>Aquí se sigue programando «a mano» y aquí va todo el tiempo de revisión disponible. Sobre una base sólida de estudio en seguridad informática, el humano elige los componentes y parámetros según la arquitectura, los costos y el negocio. La IA los implementa primero, junto con los unit tests y las simulaciones. Al final, el programador revisa el código a mano.</p><p class="rule">Nunca se delega al 100 % en la IA.</p></div><span class="who">humano</span></li>
+      <li class="human sec"><div class="N">5</div><div class="body"><h3>Control y auditabilidad <small style="font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.08em">· C</small></h3><p>En desarrollo colaborativo, el equipo tiene que poder ver qué hace cada dev con la IA. Se conservan los logs de las sesiones y el registro de los prompts que se entregan a los agentes, junto con el commit que produjo cada uno.</p><p>Una política escrita define cómo se usa la IA en el proyecto: qué herramientas y modelos se permiten, qué datos y credenciales puede ver el agente y qué queda registrado. Así hay trazabilidad para auditar, sobre todo la seguridad del código y el uso de credenciales.</p><p class="rule">Sin registro no hay auditoría.</p></div><span class="who">equipo</span></li>
+    </ol>
+  </section>
+
+  <section id="agente">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">3</span> · El agente</div>
+      <h2>El agente miente, es flojo y siempre está seguro de lo que dice</h2>
+      <p>No por malicia: así funciona. Se equivoca con total confianza, toma atajos y declara terminado lo que no comprobó. Por eso el método parte de la sospecha, no de la fe.</p>
+    </div>
+    <ol class="rules">
+      <li><div class="L">0</div><div class="body"><h3>Sospechar siempre</h3><p>Todo lo que el agente hace o dice se trata como hipótesis hasta ver la prueba. Hay que exigirle que compruebe, verifique y chequee, sobre todo en lo importante. «Listo» sin evidencia (salida del test, URL, versión desplegada) no cuenta.</p></div></li>
+      <li><div class="L">1</div><div class="body"><h3>E2E y producción, siempre</h3><p>Se le pide que haga las pruebas e2e y que revise producción. Así trabaja con el contexto que importa, lo que está corriendo de verdad, y no con lo que cree recordar.</p></div></li>
+      <li><div class="L">2</div><div class="body"><h3>Un adversario con contexto limpio</h3><p>Una vez que hay una base de código sólida, otro agente la ataca: rebate, busca bugs y fallas. Parte de un contexto limpio, sin la conversación ni las justificaciones del que construyó, y evalúa solo contra reglas de evaluación definidas de antemano.</p><p class="why">El mismo agente que escribió el código defiende su trabajo. Uno nuevo no tiene nada que defender.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="marco">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">4</span> · El marco</div>
+      <h2>Cuatro niveles, tres sombreros humanos y una definición de hecho</h2>
+    </div>
+
+    <div class="sub">
+      <h3>Niveles de trabajo</h3>
+      <p>La unidad mínima es el <b>Cambio</b>: un prompt que termina en un commit. Los cambios forman sesiones, las sesiones forman hitos y los hitos hacen avanzar el producto.</p>
+      <div class="level">
+        <div class="level-head"><h3>Producto</h3><span class="dur">semanas a meses</span><p>Semilla → Propuesta → MVP → Producción → Pulido → Operación → Retiro. La Propuesta y el paso a Producción siempre los decide el humano.</p></div>
+        <div class="level">
+          <div class="level-head"><h3>Hito</h3><span class="dur">horas a días</span><span class="gatepill">cierra con compuerta humana</span><p>Un resultado visible: un MVP, una feature en producción, un endurecimiento de seguridad.</p></div>
+          <div class="level">
+            <div class="level-head"><h3>Sesión</h3><span class="dur">un tema · antes de compactar</span><p>Abre con Arranque y termina con Cierre.</p></div>
+            <div class="level">
+              <div class="level-head"><h3>Cambio</h3><span class="dur">minutos · prompt → commit</span><p>Generación, Integración, Evaluación y Depuración, completas. Auditable por otra IA.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Tres eventos</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="when">Inicio de sesión</div>
+          <h3>Arranque</h3>
+          <div class="say">sync con prod, lee BACKLOG y ESTADO, dime en 3 líneas dónde estamos</div>
+          <p>El agente parte de lo que está desplegado, no de su memoria.</p>
+        </div>
+        <div class="card">
+          <div class="when">Fin de sesión</div>
+          <h3>Cierre</h3>
+          <div class="say">cerramos</div>
+          <ol>
+            <li>Prueba e2e de lo tocado</li>
+            <li>BACKLOG: hecho, pendiente, bloqueado</li>
+            <li>Lección nueva a las reglas</li>
+            <li>commit, push, deploy y versión verificada</li>
+            <li>Resumen en 3 líneas</li>
+          </ol>
+        </div>
+        <div class="card h">
+          <div class="when">Fin de hito · humano</div>
+          <h3>Compuerta</h3>
+          <p>Revisión del agente adversario, prueba manual de cada elemento, revisión de seguridad línea por línea si se tocó código sensible, y decisión: seguir, corregir o detener.</p>
+          <p>Los errores repetidos del hito se vuelven reglas o plantillas.</p>
+        </div>
+      </div>
+      <p class="why">Entre Arranque y Cierre, el bucle es simple: el agente propone opciones numeradas, el humano responde por número y dice «proceda».</p>
+    </div>
+
+    <div class="sub">
+      <h3>Roles</h3>
+      <p>En un equipo de una persona, los tres sombreros humanos los lleva el mismo programador. Lo que nunca se hace es pasarle uno a la IA.</p>
+      <div class="roles">
+        <div class="role-col">
+          <span class="who">Humano</span>
+          <div class="role h"><h3>Arquitecto</h3><p>Elige bases y arquitectura, escribe las invariantes, prioriza y decide en cada compuerta.</p></div>
+          <div class="role h"><h3>Probador</h3><p>Prueba a mano cada elemento: navegador, CLI simulando al usuario, debug controlado.</p></div>
+          <div class="role h"><h3>Guardián de seguridad</h3><p>Elige componentes y parámetros de seguridad y revisa a mano todo código sensible.</p></div>
+        </div>
+        <div class="role-col">
+          <span class="who ai">IA</span>
+          <div class="role"><h3>Agente líder</h3><p>Mantiene BACKLOG y ESTADO, propone opciones, reparte e integra ramas.</p></div>
+          <div class="role"><h3>Agentes ejecutores</h3><p>Hacen los cambios dentro de una plantilla, uno por rama, y cierran cada uno con commit.</p></div>
+          <div class="role"><h3>Agente adversario</h3><p>Ataca el código desde un contexto limpio y con reglas de evaluación fijas: busca bugs, fallas y lo que el Guardián debe leer. Señala; no reemplaza.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Un cambio está hecho cuando…</h3>
+      <ul class="checks">
+        <li>tiene commit en la rama correcta, con un mensaje que explica el porqué;</li>
+        <li>los unit tests y las automatizaciones controladas pasan, y el agente mostró la salida, no solo dijo que pasan;</li>
+        <li>el agente adversario no encontró fallas abiertas;</li>
+        <li class="h">el Probador lo probó a mano, elemento por elemento;</li>
+        <li class="h">si toca seguridad, el Guardián lo revisó línea por línea;</li>
+        <li>está en producción con prueba e2e y versión verificada;</li>
+        <li>BACKLOG y ESTADO quedaron al día.</li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <h3>Cinco archivos que recuerdan por el agente</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Archivo</th><th>Qué contiene</th><th>Regla</th></tr></thead>
+          <tbody>
+            <tr><td><code>CONTEXTO</code></td><td>Índice para el agente: stack, cómo deployar, reglas, links. En Claude Code es <code>CLAUDE.md</code>; en otros agentes, <code>AGENTS.md</code></td><td>Corto. Si crece, se divide</td></tr>
+            <tr><td><code>INVARIANTES.md</code></td><td>Arquitectura, marca, idioma, i18n, estilo, componentes de seguridad</td><td>Se escribe antes del primer cambio</td></tr>
+            <tr><td><code>BACKLOG.md</code></td><td>Cambios pendientes, hechos y bloqueados, numerados</td><td>Se actualiza en cada Cierre</td></tr>
+            <tr><td><code>ESTADO.md</code></td><td>Infraestructura, versiones, versión desplegada, ramas activas</td><td>Fuera del archivo de contexto</td></tr>
+            <tr><td><code>BITACORA.md</code></td><td>Incidentes y lecciones fechadas</td><td>Lo que se repite sube a regla</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="reglas">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">5</span> · Reglas operativas</div>
+      <h2>Lo que se aplica en cada sesión</h2>
+    </div>
+    <div class="cards">
+      <div class="card key">
+        <div class="when">Regla 0 · la esencial</div>
+        <h3>Contexto acotado</h3>
+        <p>El agente trabaja siempre con un tope de contexto, y cada cambio tiene que completar su ciclo <b>GIED</b> dentro de él:</p>
+        <div class="gied"><span><b>G</b>eneración</span><span><b>I</b>ntegración</span><span><b>E</b>valuación</span><span><b>D</b>epuración</span></div>
+        <p>La regla estable: <b>cada cambio cabe entero antes de la primera compactación</b>. Con los modelos de hoy, unos 200k tokens suelen bastar. Si un cambio no cabe, se parte en dos; si la sesión se acerca al tope, se hace Cierre y se abre otra.</p>
+      </div>
+    </div>
+    <ol class="rules">
+      <li><div class="L">1</div><div class="body"><h3>Prompts cortos y directos</h3><p>Sin relleno. Lo permanente va al archivo de contexto o a una plantilla, no a cada mensaje.</p></div></li>
+      <li><div class="L">2</div><div class="body"><h3>Un cambio por prompt, auditable</h3><p>Con la estructura del proyecto ya montada, cada prompt pide un solo cambio, lo más acotado posible. Otra IA tiene que poder auditarlo leyendo el prompt y el diff.</p></div></li>
+      <li><div class="L">3</div><div class="body"><h3>Referencia concreta, nunca adjetivos</h3><p>Una URL, un repo propio, el nombre técnico exacto y un caso de prueba. «Hazlo más moderno» no es un pedido.</p></div></li>
+      <li><div class="L">4</div><div class="body"><h3>Opciones numeradas</h3><p>Ante una decisión, el agente propone 2 o 3 caminos numerados y el humano responde por número. «Proceda» siempre con objeto: proceda con qué.</p></div></li>
+      <li><div class="L">5</div><div class="body"><h3>Cada prompt termina en un commit</h3><p>Pocas ramas activas, cada una con un propósito claro (una rutina, un autopilot, un ambiente) y la menor divergencia posible.</p><p class="why">Con demasiadas ramas el agente se confunde: se guía por la descripción de la rama más que por los commits, y se le suman merges y divergencias que pasa por alto.</p></div></li>
+      <li><div class="L">6</div><div class="body"><h3>Multiagente = ramas separadas</h3><p>Si hay más de un agente en el repo, cada uno trabaja en su rama y su copia aislada (worktree), sin excepción. Se coordinan por archivos, no por memoria, y el merge lo decide el líder o el humano. Solo se paraleliza trabajo independiente.</p></div></li>
+      <li><div class="L">7</div><div class="body"><h3>Credenciales: definidas, inventariadas y rotables</h3><p>Antes de empezar se define qué credenciales usará el agente y cómo le llegan.</p>
+        <ul class="checks">
+          <li><span><b>Variables de entorno</b> son la práctica por excelencia para entregárselas. Para compartirlas, un vault en la nube: la mayoría de los proveedores confiables tienen uno validado y con estándares de seguridad.</span></li>
+          <li><span><b>En desarrollo</b> se le puede entregar la credencial directamente al agente, asumiendo el riesgo, pero con un <b>inventario estricto</b>: qué llave, dónde se usó, quién la vio. Al pasar a producción, todo lo del inventario se rota.</span></li>
+          <li><span><b>Decírselo al agente.</b> Los agentes suelen negarse a iniciar sesión en webs o a usar credenciales para automatizar, y devuelven el trabajo al humano. Si el proyecto está en desarrollo, el archivo de contexto lo dice explícitamente: «etapa dev, credenciales de prueba inventariadas, se rotan antes de prod». Así se evitan bloqueos y tiempo perdido.</span></li>
+        </ul>
+        <p class="why">Algunos agentes tienen límites que ninguna instrucción levanta, como escribir contraseñas reales o pagar. Para eso, el agente deja todo listo hasta ese paso y el humano lo completa.</p>
+      </div></li>
+      <li><div class="L">8</div><div class="body"><h3>Lo que funcionó dos veces se vuelve plantilla</h3><p>Procedimientos repetidos con éxito se guardan como plantillas o skills que el agente carga (arranque, cierre, deploy, QA en navegador). El agente no reinventa; carga.</p></div></li>
+      <li><div class="L">9</div><div class="body"><div class="card-head"><h3>El modelo según la tarea</h3><span class="draft">propuesta, en validación</span></div><p>El más capaz para arquitectura, seguridad, depuración difícil y auditoría; uno intermedio para la ejecución de rutina dentro de una plantilla; uno rápido para búsquedas y tareas masivas. Ante la duda, el más capaz.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="antipatrones">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">6</span> · Antipatrones</div>
+      <h2>Lo que el humano sabe y no está escrito</h2>
+      <p>Casi todas las correcciones observadas tienen la misma raíz.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Antipatrón</th><th>Síntoma</th><th>Lo corrige</th></tr></thead>
+        <tbody>
+          <tr><td>Backlog en la cabeza del agente</td><td>«¿qué queda?» todos los días</td><td>BACKLOG.md y Cierre</td></tr>
+          <tr><td>Sesiones gigantes y multi-tema</td><td>El agente compacta y olvida el plan</td><td>Regla 0</td></tr>
+          <tr><td>«proceda» sin objeto</td><td>El agente adivina qué aprobaste</td><td>Regla 4</td></tr>
+          <tr><td>Estética sin referencia</td><td>Correcciones de diseño en cada hito</td><td>INVARIANTES y regla 3</td></tr>
+          <tr><td>Pedido vago que deriva</td><td>Se pide una tecnología y se construye otra</td><td>Regla 3</td></tr>
+          <tr><td>Agente que devuelve trabajo</td><td>«hazlo tú» desde el humano</td><td>Pilar Proceda</td></tr>
+          <tr><td>Credenciales sin inventario</td><td>Llaves de dev que llegan a prod sin rotar</td><td>Regla 7</td></tr>
+          <tr><td>Agente que no se loguea en dev</td><td>Bloqueos y trabajo devuelto al humano</td><td>Regla 7: decirle la etapa</td></tr>
+          <tr><td>Varios agentes en una misma copia, o demasiadas ramas</td><td>Colisiones y contexto confuso</td><td>Reglas 5 y 6</td></tr>
+          <tr><td>Creerle al agente</td><td>«Listo» sin prueba; el bug aparece en producción</td><td>El agente: reglas 0 y 1</td></tr>
+          <tr><td>El que construye se revisa a sí mismo</td><td>El agente defiende su propio código</td><td>Adversario con contexto limpio</td></tr>
+          <tr><td>Seguridad delegada a la IA</td><td>Nadie leyó el código de auth</td><td>Pilar Seguridad</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="empezar">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">7</span> · Cómo empezar</div>
+      <h2>Cuatro semanas en un proyecto real</h2>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="when">Semana 1</div><h3>Montar</h3><p>Crear los cinco archivos, escribir las INVARIANTES, definir variables de entorno, vault e inventario de credenciales y guardar las plantillas de arranque y cierre.</p></div>
+      <div class="card"><div class="when">Semanas 2–3</div><h3>Practicar</h3><p>Cada prompt termina en commit, cada sesión cierra antes de compactar y cada hito pasa por la compuerta. Las fricciones van a la BITÁCORA.</p></div>
+      <div class="card"><div class="when">Semana 4</div><h3>Medir</h3><p>Contar en tus transcripts: compactaciones por sesión, «¿qué queda?», correcciones de diseño y prompts que terminan en commit. Compararlo con antes y ajustar.</p></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Señal de que funciona</th><th>Meta</th></tr></thead>
+        <tbody>
+          <tr><td>Compactaciones por sesión</td><td class="num">0</td></tr>
+          <tr><td>Prompts que terminan en commit</td><td class="num">≥ 80 %</td></tr>
+          <tr><td>«¿Qué queda?» por semana</td><td class="num">0</td></tr>
+          <tr><td>Ramas activas por repo</td><td class="num">≤ 3</td></tr>
+          <tr><td>Código sensible con revisión humana</td><td class="num">100 %</td></tr>
+          <tr><td>Credenciales de dev fuera del inventario</td><td class="num">0</td></tr>
+          <tr><td>Commits de IA sin prompt ni log trazable</td><td class="num">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="evidencia">
+    <div class="sec-head">
+      <div class="eyebrow"><span class="n">8</span> · Evidencia</div>
+      <h2>Un caso de estudio medido, no una encuesta</h2>
+      <p>Lucid coding sale del trabajo de un solo programador durante un año, con un análisis detallado de los últimos tres meses: todos los prompts tecleados y todos los archivos de contexto de sus proyectos. Los conteos se hicieron por expresiones regulares y son aproximados. Es una muestra de uno; por eso la invitación es a medir los propios transcripts y comparar.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3.977</b><span>prompts analizados</span></div>
+      <div class="stat"><b>~420</b><span>veces «proceda»</span></div>
+      <div class="stat"><b>114</b><span>archivos de contexto</span></div>
+      <div class="stat"><b>640</b><span>compactaciones de contexto</span></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Señal</th><th>Medida</th><th>Qué reveló</th></tr></thead>
+        <tbody>
+          <tr><td>Mensajes de 3 palabras o menos</td><td class="num">34–37 %</td><td>El humano dirige; no especifica</td></tr>
+          <tr><td>«proceda» y variantes</td><td class="num">~420</td><td>Aprobar es el acto principal</td></tr>
+          <tr><td>«¿qué queda?» / «¿cerramos?»</td><td class="num">~170</td><td>El backlog vivía en el agente</td></tr>
+          <tr><td>Resúmenes de compactación</td><td class="num">640</td><td>Una de cada cuatro entradas: sesiones demasiado largas</td></tr>
+          <tr><td>Quejas de diseño, logo, i18n</td><td class="num">~105</td><td>Requisitos que nunca se escribieron</td></tr>
+          <tr><td>«Hazlo tú»</td><td class="num">~25</td><td>La frontera de autonomía no estaba explícita</td></tr>
+          <tr><td>Archivo de contexto más grande</td><td class="num">6,5 → 191 KB</td><td>La memoria del agente crecía sin techo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Lo que mejor funcionó, con casi cero correcciones después: responder por número a opciones numeradas, pedir 3 propuestas y elegir una, dar una URL o un repo propio como referencia, nombrar la técnica exacta con un caso de prueba y convertir cada sesión exitosa en un procedimiento escrito. Con ese bucle, un producto SaaS completo pasó de idea a producción en 17 horas y un bot de despliegue en un día.</p>
+  </section>
+
+  <footer>
+    <span>Lucid coding v1.0 · octubre 2026</span>
+    <span>Muestra: prompts del 25 jul al 25 oct 2026 de un programador, más sus archivos de contexto. Conteos aproximados.</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Lucid Coding Manifesto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Vibe coding, awake. Five values for building software with AI agents without falling asleep at the wheel.">
+<meta property="og:type" content="website"><meta property="og:title" content="The Lucid Coding Manifesto"><meta property="og:description" content="Vibe coding, awake. Five values for building software with AI agents without falling asleep at the wheel.">
+<meta property="og:url" content="https://opcastil11.github.io/lucid-coding/"><meta property="og:image" content="https://opcastil11.github.io/lucid-coding/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Lucid Coding Manifesto"><meta name="twitter:description" content="Vibe coding, awake. Five values for building software with AI agents without falling asleep at the wheel."><meta name="twitter:image" content="https://opcastil11.github.io/lucid-coding/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: una sola pantalla, como un manifiesto impreso. Valor preferido grande, el otro tenue; ámbar marca lo humano */
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --ink: #131820;
+  --muted: #5b6573;
+  --rule: #d9dee6;
+  --accent: #1f4fd8;
+  --gate: #b45309;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1218; --surface: #161c25; --ink: #e8edf5; --muted: #98a3b3; --rule: #2a3340;
+    --accent: #7d9bff; --gate: #f0a75a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1218; --surface: #161c25; --ink: #e8edf5; --muted: #98a3b3; --rule: #2a3340;
+  --accent: #7d9bff; --gate: #f0a75a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 820px; margin: 0 auto; padding-block: 40px 56px; min-height: 100vh; display: grid; align-content: center; gap: 36px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.mark { font-family: var(--f-display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.mark span { color: var(--accent); }
+.lang { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.lang button { font: 600 12px var(--f-mono); letter-spacing: 0.08em; border: 0; background: transparent; color: var(--muted); padding: 6px 12px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(38px, 7vw, 68px); line-height: 0.98; letter-spacing: -0.035em; margin: 0; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--accent); }
+.intro { font-size: 19px; color: var(--muted); max-width: 60ch; margin: 0; }
+ol { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+li { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.yes { font-family: var(--f-display); font-weight: 700; font-size: clamp(19px, 2.4vw, 24px); line-height: 1.15; }
+.over { font: 600 11.5px var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.no { color: var(--muted); }
+.close { margin: 0; max-width: 62ch; }
+.acro { margin: 0; font: 600 13px var(--f-mono); letter-spacing: 0.06em; color: var(--muted); }
+.acro b { color: var(--accent); }
+.zero { margin: 0; border-left: 3px solid var(--gate); padding: 4px 0 4px 16px; font-family: var(--f-display); font-weight: 700; font-size: 20px; }
+.zero small { display: block; font: 400 14px var(--f-body); color: var(--muted); margin-top: 2px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-block; text-decoration: none; font-weight: 600; background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 10px; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.soon { font: 12.5px var(--f-mono); color: var(--muted); }
+footer { font: 12.5px var(--f-mono); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  li { grid-template-columns: 1fr; gap: 2px; }
+  .wrap { padding-block: 24px 40px; gap: 28px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="mark">Lucid<span>.</span></div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="es" aria-pressed="true">ES</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <article lang="es" data-lang="es">
+    <div style="display:grid; gap:28px">
+      <h1>Manifiesto del <em>lucid coding</em></h1>
+      <p class="acro"><b>L</b>iderar el diseño · <b>U</b>sar lo que funciona · <b>C</b>ommit y control · <b>I</b>nspeccionar a mano · <b>D</b>efender</p>
+      <p class="intro">Construimos software con agentes de IA todos los días. Conservamos su velocidad, pero programamos despiertos. Por eso valoramos:</p>
+      <ol>
+        <li><span class="yes">Arquitectura decidida por humanos</span><span class="over">sobre</span><span class="no">código que la IA improvisa</span></li>
+        <li><span class="yes">Plantillas y repos que ya funcionan</span><span class="over">sobre</span><span class="no">construir desde cero</span></li>
+        <li><span class="yes">Ejecución continua, cambio a cambio</span><span class="over">sobre</span><span class="no">planes largos sin commits</span></li>
+        <li><span class="yes">Producto probado a mano</span><span class="over">sobre</span><span class="no">cobertura automática que nadie miró</span></li>
+        <li><span class="yes">Seguridad revisada por una persona</span><span class="over">sobre</span><span class="no">confianza ciega en la IA</span></li>
+      </ol>
+      <p class="close">Lo de la derecha tiene valor y lo usamos: la IA genera código y escribe tests. Pero cuando hay conflicto, gana lo de la izquierda.</p>
+      <p class="zero">El agente se equivoca con total seguridad. Verifícalo todo.<small>La regla cero de todo lo demás.</small></p>
+      <div class="cta">
+        <a class="btn" href="guia.html">Leer la guía →</a>
+        <span class="soon">Firmas abiertas en el lanzamiento</span>
+      </div>
+    </div>
+  </article>
+
+  <article lang="en" data-lang="en" hidden>
+    <div style="display:grid; gap:28px">
+      <h1>The <em>Lucid Coding</em> Manifesto</h1>
+      <p class="acro"><b>L</b>ead the design · <b>U</b>se what works · <b>C</b>ommit &amp; control · <b>I</b>nspect by hand · <b>D</b>efend</p>
+      <p class="intro">We build software with AI agents every day. We keep their speed, but we code awake. That is why we value:</p>
+      <ol>
+        <li><span class="yes">Architecture decided by humans</span><span class="over">over</span><span class="no">code the AI improvises</span></li>
+        <li><span class="yes">Templates and repos that already work</span><span class="over">over</span><span class="no">building from scratch</span></li>
+        <li><span class="yes">Continuous execution, one change at a time</span><span class="over">over</span><span class="no">long plans with no commits</span></li>
+        <li><span class="yes">Product tested by hand</span><span class="over">over</span><span class="no">automated coverage nobody looked at</span></li>
+        <li><span class="yes">Security reviewed by a person</span><span class="over">over</span><span class="no">blind trust in the AI</span></li>
+      </ol>
+      <p class="close">There is value in the items on the right, and we use them: the AI writes code and tests. But when they conflict, the items on the left win.</p>
+      <p class="zero">The agent is confidently wrong. Verify everything.<small>Rule zero, beneath everything else.</small></p>
+      <div class="cta">
+        <a class="btn" href="guia.html">Read the guide (Spanish) →</a>
+        <span class="soon">English guide coming soon · Signatures open at launch</span>
+      </div>
+    </div>
+  </article>
+
+  <footer>Lucid coding · v1.0 · 2026</footer>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.lang button');
+  function setLang(l) {
+    document.querySelectorAll('article[data-lang]').forEach(function (a) { a.hidden = a.dataset.lang !== l; });
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+    document.documentElement.lang = l;
+    try { localStorage.setItem('lucid-lang', l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('lucid-lang'); } catch (e) {}
+  setLang(saved || ((navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en'));
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+})();
+</script>
+</body>
+</html>
