@@ -124,6 +124,16 @@ With this loop, a complete SaaS product went from idea to production in 17 hours
 
 **Measure your own transcripts and compare.** That is the point of publishing.
 
+### Audit your sessions
+
+[`tools/lucid_audit.py`](tools/lucid_audit.py) reads your Claude Code transcripts and gives each session a score with one concrete suggestion per bent rule: compactions, bare «proceed», «what's left?», edits without commits or tests, subagents without worktrees, model choice and secrets pasted in prompts. Standard library only; it runs locally and never prints prompt text.
+
+```bash
+python3 tools/lucid_audit.py               # last 30 days, 10 sessions to review
+python3 tools/lucid_audit.py --days 0 --top 25 --lang es
+python3 tools/lucid_audit.py --json > audit.json
+```
+
 ## Get started in four weeks
 
 | When | Step | What to do |

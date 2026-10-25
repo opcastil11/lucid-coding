@@ -125,6 +125,16 @@ Con este ciclo, un producto SaaS completo pasó de idea a producción en 17 hora
 
 **Mide tus propios transcripts y compara.** Para eso se publica.
 
+### Audita tus sesiones
+
+[`tools/lucid_audit.py`](tools/lucid_audit.py) lee tus transcripts de Claude Code y le da a cada sesión un puntaje con una sugerencia concreta por regla incumplida: compactaciones, «proceda» sin objeto, «¿qué queda?», ediciones sin commit ni pruebas, subagentes sin worktree, elección de modelo y secretos pegados en prompts. Solo usa la biblioteca estándar, corre local y nunca imprime el texto de los prompts.
+
+```bash
+python3 tools/lucid_audit.py --lang es     # últimos 30 días, 10 sesiones a revisar
+python3 tools/lucid_audit.py --days 0 --top 25 --lang es
+python3 tools/lucid_audit.py --json > auditoria.json
+```
+
 ## Empezar en cuatro semanas
 
 | Cuándo | Paso | Qué hacer |
