@@ -17,7 +17,7 @@
   <img alt="Versión" src="https://img.shields.io/badge/versi%C3%B3n-1.0-1f4fd8">
   <img alt="Licencia: CC BY-SA 4.0" src="https://img.shields.io/badge/licencia-CC%20BY--SA%204.0-b45309">
   <img alt="Idiomas" src="https://img.shields.io/badge/idiomas-ES%20%7C%20EN-131820">
-  <img alt="Evidencia" src="https://img.shields.io/badge/evidencia-3.977%20prompts%20medidos-5b6573">
+  <img alt="Evidencia" src="https://img.shields.io/badge/evidencia-21.310%20prompts%20medidos-5b6573">
 </p>
 
 # Lucid coding
@@ -107,17 +107,17 @@ Además, el agente tiene tres órdenes permanentes:
 
 ## Evidencia
 
-Lucid coding sale de un año de trabajo diario de un programador con agentes de IA. Los últimos tres meses se analizaron en detalle: todos los prompts tecleados y todos los archivos de contexto de sus proyectos. **Es un caso de estudio medido (n = 1), no una encuesta.** Los conteos se hicieron con expresiones regulares y son aproximados.
+Lucid coding sale de un año de trabajo diario de un programador con agentes de IA, con todo el historial medido: cada prompt tecleado entre noviembre de 2025 y octubre de 2026 y cada archivo de contexto de sus proyectos. Las compactaciones salen de los transcripts que la herramienta conserva (el último mes). **Es un caso de estudio medido (n = 1), no una encuesta.** Los conteos se hicieron con expresiones regulares y son aproximados.
 
 | Señal | Medida | Qué reveló |
 |---|---:|---|
-| Prompts analizados | 3.977 | |
-| Mensajes de tres palabras o menos | 34–37 % | El humano dirige más de lo que especifica |
-| «Proceda» y variantes | ~420 | Aprobar es el acto principal |
-| «¿Qué queda?» / «¿Cerramos?» | ~170 | El backlog vivía en el agente |
-| Resúmenes de compactación | 640 | Una de cada cuatro entradas: sesiones demasiado largas |
-| Quejas de diseño, logo e i18n | ~105 | Requisitos que nunca se escribieron |
-| Archivo de contexto más grande | 6,5 → 191 KB | La memoria del agente crecía sin techo |
+| Prompts analizados | 21.310 | 1.548 sesiones, 195 proyectos |
+| Mensajes de tres palabras o menos | 27 % | El humano dirige más de lo que especifica |
+| «Proceda» y variantes | ~1.230 | Aprobar es el acto principal |
+| «¿Qué queda?» / «¿Cerramos?» | ~410 | El backlog vivía en el agente |
+| Compactaciones en el último mes | 840 | Una cada ~6 prompts; el 52 % de las sesiones compactó |
+| Quejas de diseño, logo e i18n | ~360 | Requisitos que nunca se escribieron |
+| Archivos de contexto / el más grande | 135 / 226 KB | La memoria del agente crecía sin techo |
 
 Con este ciclo, un producto SaaS completo pasó de idea a producción en 17 horas.
 

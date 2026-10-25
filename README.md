@@ -17,7 +17,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-1f4fd8">
   <img alt="License: CC BY-SA 4.0" src="https://img.shields.io/badge/license-CC%20BY--SA%204.0-b45309">
   <img alt="Languages" src="https://img.shields.io/badge/languages-EN%20%7C%20ES-131820">
-  <img alt="Evidence" src="https://img.shields.io/badge/evidence-3%2C977%20prompts%20measured-5b6573">
+  <img alt="Evidence" src="https://img.shields.io/badge/evidence-21%2C310%20prompts%20measured-5b6573">
 </p>
 
 # Lucid coding
@@ -106,17 +106,17 @@ The agent also gets three standing orders: suspect everything it reports, run e2
 
 ## Evidence
 
-Lucid coding was distilled from one developer's year of daily work with AI coding agents. The last three months were analyzed in detail: every typed prompt and every project context file. **This is a measured case study (n = 1), not a survey.** The counts come from regular expressions and are approximate.
+Lucid coding was distilled from one developer's year of daily work with AI coding agents, and the whole history was measured: every typed prompt from November 2025 to October 2026, plus every project context file. Compactions come from the transcripts the tool retains (the last month). **This is a measured case study (n = 1), not a survey.** The counts come from regular expressions and are approximate.
 
 | Signal | Measured | What it revealed |
 |---|---:|---|
-| Prompts analyzed | 3,977 | |
-| Messages of three words or fewer | 34–37% | The human steers rather than specifies |
-| "Proceed" and variants | ~420 | Approving is the main act |
-| "What's left?" / "Shall we close?" | ~170 | The backlog lived in the agent |
-| Context compaction summaries | 640 | One in four inputs: sessions too long |
-| Design, logo and i18n complaints | ~105 | Requirements that were never written |
-| Largest context file | 6.5 → 191 KB | The agent's memory grew without a ceiling |
+| Prompts analyzed | 21,310 | 1,548 sessions, 195 projects |
+| Messages of three words or fewer | 27% | The human steers rather than specifies |
+| "Proceed" and variants | ~1,230 | Approving is the main act |
+| "What's left?" / "Shall we close?" | ~410 | The backlog lived in the agent |
+| Compactions in the last month | 840 | One every ~6 prompts; 52% of sessions compacted |
+| Design, logo and i18n complaints | ~360 | Requirements that were never written |
+| Context files / largest | 135 / 226 KB | The agent's memory grew without a ceiling |
 
 With this loop, a complete SaaS product went from idea to production in 17 hours.
 
